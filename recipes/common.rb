@@ -180,10 +180,6 @@ directory "/etc/neutron/plugins/#{main_plugin}" do
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode 00700
-  variables(
-    auth_uri: auth_uri,
-    identity_admin_endpoint: identity_admin_endpoint
-  )
 end
 
 # For several plugins, the plugin configuration

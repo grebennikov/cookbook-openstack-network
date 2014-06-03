@@ -166,6 +166,11 @@ template '/etc/neutron/api-paste.ini' do
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode   00640
+  variables(
+    auth_uri: auth_uri,
+    identity_admin_endpoint: identity_admin_endpoint,
+    service_pass: service_pass
+  )
 
   notifies :restart, 'service[neutron-server]', :delayed
 end
@@ -175,6 +180,10 @@ directory "/etc/neutron/plugins/#{main_plugin}" do
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode 00700
+  variables(
+    auth_uri: auth_uri,
+    identity_admin_endpoint: identity_admin_endpoint
+  )
 end
 
 # For several plugins, the plugin configuration

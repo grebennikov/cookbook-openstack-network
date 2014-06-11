@@ -120,6 +120,7 @@ default['openstack']['network']['neutron_ha_cmd_cron'] = false
 default['openstack']['network']['neutron_ha_cmd'] = '/usr/local/bin/neutron-ha-tool.py'
 default['openstack']['network']['cron_l3_healthcheck'] = '*/1'
 default['openstack']['network']['cron_replicate_dhcp'] = '*/1'
+default['openstack']['network']['cron_l3_rebalance'] = '*/1'
 
 # (ListOpt) Specify service providers (drivers) for advanced services like loadbalancer, VPN, Firewall.
 # Must be in form:

@@ -206,6 +206,11 @@ template '/etc/neutron/api-paste.ini' do
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode   00640
+  variables(
+    auth_uri: auth_uri,
+    identity_admin_endpoint: identity_admin_endpoint,
+    service_pass: service_pass
+  )
 
   notifies :restart, 'service[neutron-server]', :delayed
 end
